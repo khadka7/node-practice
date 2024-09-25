@@ -8,7 +8,9 @@ const port = 3000;
 //routes
 const adminRoutes = require('./routes/admin')
 const userRoutes = require('./routes/user');
+
 const path = require('path')
+const rootDir = require('./utils/path')
 
 
 // parse application/x-www-form-urlencoded
@@ -23,7 +25,7 @@ app.use(userRoutes)
 
 //create 404 page
 app.use((req,res,next)=>{
-    res.status(404).sendFile(path.join(__dirname,'views','404.html'))
+    res.status(404).sendFile(path.join(rootDir,'views','404.html'))
     // res.status(400).send("<h1>Page not found </h1>")
 })
 
